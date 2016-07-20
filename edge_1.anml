@@ -54,6 +54,7 @@
         <state-transition-element id="s11" symbol-set="%p4">
             <activate-on-match element="s5"/>
             <activate-on-match element="s8"/>
+            <activate-on-match element="s15"/>
         </state-transition-element>
         <state-transition-element id="s5" symbol-set="[^\xff]" start="start-of-data">
             <activate-on-match element="s6"/>
