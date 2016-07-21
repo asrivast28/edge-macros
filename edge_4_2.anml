@@ -54,6 +54,17 @@
             <activate-on-match element="s5"/>
             <activate-on-match element="s8"/>
         </state-transition-element>
+        <state-transition-element id="s5" symbol-set="[^\xff]" start="start-of-data">
+            <activate-on-match element="s6"/>
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+        <state-transition-element id="s6" symbol-set="*">
+            <activate-on-match element="s7"/>
+            <activate-on-match element="s10"/>
+        </state-transition-element>
+        <state-transition-element id="s7" symbol-set="*">
+            <activate-on-match element="s11"/>
+        </state-transition-element>
         <state-transition-element id="s8" symbol-set="%p1" start="start-of-data">
             <activate-on-match element="s12"/>
         </state-transition-element>
@@ -68,17 +79,6 @@
             <activate-on-match element="s8"/>
             <activate-on-match element="s15"/>
             <activate-on-match element="s21"/>
-        </state-transition-element>
-        <state-transition-element id="s5" symbol-set="[^\xff]" start="start-of-data">
-            <activate-on-match element="s6"/>
-            <activate-on-match element="s9"/>
-        </state-transition-element>
-        <state-transition-element id="s6" symbol-set="*">
-            <activate-on-match element="s7"/>
-            <activate-on-match element="s10"/>
-        </state-transition-element>
-        <state-transition-element id="s7" symbol-set="*">
-            <activate-on-match element="s11"/>
         </state-transition-element>
         <state-transition-element id="s12" symbol-set="*">
             <activate-on-match element="s13"/>
