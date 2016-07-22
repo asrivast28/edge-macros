@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<macro-definition id="edge_1" name="edge_1" units="0.001">
+<macro-definition id="edge_3" name="edge_3" units="0.001">
     <header>
         <parameter-declarations>
             <parameter parameter-name="%p1" default-value="[\x01]">
