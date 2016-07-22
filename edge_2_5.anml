@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<macro-definition id="edge_5" name="edge_5" units="0.001">
+    <header>
+        <parameter-declarations>
+            <parameter parameter-name="%p1" default-value="[\x01]">
+                <description>First byte of v</description>
+            </parameter>
+            <parameter parameter-name="%p2" default-value="[\x02]">
+                <description>Second byte of v</description>
+            </parameter>
+            <parameter parameter-name="%p3" default-value="[\x03]">
+                <description>First byte of u1</description>
+            </parameter>
+            <parameter parameter-name="%p4" default-value="[\x04]">
+                <description>Second byte of u1</description>
+            </parameter>
+            <parameter parameter-name="%p5" default-value="[\x05]">
+                <description>First byte of u2</description>
+            </parameter>
+            <parameter parameter-name="%p6" default-value="[\x06]">
+                <description>Second byte of u2</description>
+            </parameter>
+            <parameter parameter-name="%p7" default-value="[\x07]">
+                <description>First byte of u3</description>
+            </parameter>
+            <parameter parameter-name="%p8" default-value="[\x08]">
+                <description>Second byte of u3</description>
+            </parameter>
+            <parameter parameter-name="%p9" default-value="[\x09]">
+                <description>First byte of u4</description>
+            </parameter>
+            <parameter parameter-name="%p10" default-value="[\x0a]">
+                <description>Second byte of u4</description>
+            </parameter>
+            <parameter parameter-name="%p11" default-value="[\x0b]">
+                <description>First byte of u5</description>
+            </parameter>
+            <parameter parameter-name="%p12" default-value="[\x0c]">
+                <description>Second byte of u5</description>
+            </parameter>
+        </parameter-declarations>
+    </header>
+    <body>
+        <state-transition-element id="s1" symbol-set="[\xff]" start="all-input">
+            <activate-on-match element="s2"/>
+        </state-transition-element>
+        <state-transition-element id="s2" symbol-set="[\xff]">
+            <activate-on-match element="s3"/>
+            <activate-on-match element="s4"/>
+        </state-transition-element>
+        <state-transition-element id="s3" symbol-set="[^\xff]" start="start-of-data">
+            <activate-on-match element="s5"/>
+        </state-transition-element>
+        <state-transition-element id="s4" symbol-set="%p1" start="start-of-data">
+            <activate-on-match element="s6"/>
+        </state-transition-element>
+        <state-transition-element id="s5" symbol-set="%p2">
+            <activate-on-match element="s3"/>
+            <activate-on-match element="s4"/>
+            <activate-on-match element="s7"/>
+            <activate-on-match element="s10"/>
+            <activate-on-match element="s12"/>
+            <activate-on-match element="s14"/>
+            <activate-on-match element="s16"/>
+        </state-transition-element>
+        <state-transition-element id="s6" symbol-set="*">
+            <activate-on-match element="s3"/>
+            <activate-on-match element="s4"/>
+            <activate-on-match element="s7"/>
+            <activate-on-match element="s10"/>
+            <activate-on-match element="s12"/>
+            <activate-on-match element="s14"/>
+            <activate-on-match element="s16"/>
+        </state-transition-element>
+        <state-transition-element id="s7" symbol-set="%p3">
+            <activate-on-match element="s8"/>
+        </state-transition-element>
+        <state-transition-element id="s8" symbol-set="%p4">
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+        <state-transition-element id="s9" symbol-set="[\xff]">
+            <report-on-match/>
+        </state-transition-element>
+        <state-transition-element id="s10" symbol-set="%p5">
+            <activate-on-match element="s11"/>
+        </state-transition-element>
+        <state-transition-element id="s11" symbol-set="%p6">
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+        <state-transition-element id="s12" symbol-set="%p7">
+            <activate-on-match element="s13"/>
+        </state-transition-element>
+        <state-transition-element id="s13" symbol-set="%p8">
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+        <state-transition-element id="s14" symbol-set="%p9">
+            <activate-on-match element="s15"/>
+        </state-transition-element>
+        <state-transition-element id="s15" symbol-set="%p10">
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+        <state-transition-element id="s16" symbol-set="%p11">
+            <activate-on-match element="s17"/>
+        </state-transition-element>
+        <state-transition-element id="s17" symbol-set="%p12">
+            <activate-on-match element="s9"/>
+        </state-transition-element>
+    </body>
+</macro-definition>
